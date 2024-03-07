@@ -1,4 +1,7 @@
-package com.example.demo;
+package enrolment;
+
+import course.Course;
+import student.Student;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -6,6 +9,27 @@ import java.time.LocalDateTime;
 @Entity(name = "Enrolment")
 @Table(name = "enrolment")
 public class Enrolment {
+
+    public Enrolment(EnrolmentId id,
+                     Student student,
+                     Course course,
+                     LocalDateTime localDateTime) {
+        this.id = id;
+        this.student = student;
+        this.course = course;
+        this.localDateTime = localDateTime;
+    }
+
+    public Enrolment(Student student,
+                     Course course,
+                     LocalDateTime localDateTime) {
+        this.student = student;
+        this.course = course;
+        this.localDateTime = localDateTime;
+    }
+
+    public Enrolment() {
+    }
 
     @EmbeddedId
     private EnrolmentId id;
@@ -35,29 +59,8 @@ public class Enrolment {
             nullable = false,
             columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
     )
-    private LocalDateTime createdAt;
+    private LocalDateTime localDateTime;
 
-
-    public Enrolment(EnrolmentId id,
-                     Student student,
-                     Course course,
-                     LocalDateTime createdAt) {
-        this.id = id;
-        this.student = student;
-        this.course = course;
-        this.createdAt = createdAt;
-    }
-
-    public Enrolment(Student student,
-                     Course course,
-                     LocalDateTime createdAt) {
-        this.student = student;
-        this.course = course;
-        this.createdAt = createdAt;
-    }
-
-    public Enrolment() {
-    }
 
     public EnrolmentId getId() {
         return id;
@@ -83,11 +86,11 @@ public class Enrolment {
         this.course = course;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setLocalDateTime(LocalDateTime localDateTime) {
+        this.localDateTime = localDateTime;
     }
 }

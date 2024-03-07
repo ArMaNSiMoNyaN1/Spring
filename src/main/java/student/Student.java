@@ -1,4 +1,6 @@
-package com.example.demo;
+package student;
+
+import enrolment.Enrolment;
 
 import javax.persistence.*;
 
@@ -15,6 +17,19 @@ import static javax.persistence.GenerationType.SEQUENCE;
         }
 )
 public class Student {
+
+    public Student(String firstName,
+                   String lastName,
+                   String email,
+                   Integer age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.age = age;
+    }
+
+    public Student() {
+    }
 
     @Id
     @SequenceGenerator(
@@ -81,19 +96,6 @@ public class Student {
     )
     private List<Enrolment> enrolments = new ArrayList<>();
 
-    public Student(String firstName,
-                   String lastName,
-                   String email,
-                   Integer age) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.age = age;
-    }
-
-    public Student() {
-
-    }
 
     public Long getId() {
         return id;
@@ -173,12 +175,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", age=" + age +
-                '}';
+        return "Student " +
+                "id " + id +
+                ", firstName " + firstName + '\'' +
+                ", lastName " + lastName + '\'' +
+                ", email " + email + '\'' +
+                ", age " + age;
     }
 }

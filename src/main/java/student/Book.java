@@ -1,4 +1,4 @@
-package com.example.demo;
+package student;
 
 
 import javax.persistence.*;
@@ -9,6 +9,15 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Entity(name = "Book")
 @Table(name = "book")
 public class Book {
+
+    public Book() {
+    }
+
+    public Book(String bookName,
+                LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+        this.bookName = bookName;
+    }
 
     @Id
     @SequenceGenerator(
@@ -50,14 +59,6 @@ public class Book {
     )
     private Student student;
 
-    public Book() {
-    }
-
-    public Book(String bookName,
-                LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-        this.bookName = bookName;
-    }
 
     public Long getId() {
         return id;
@@ -93,11 +94,10 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", createdAt=" + createdAt +
-                ", bookName='" + bookName + '\'' +
-                ", student=" + student +
-                '}';
+        return "Book " +
+                "id " + id +
+                ", createdAt " + createdAt +
+                ", bookName " + bookName + '\'' +
+                ", student " + student;
     }
 }

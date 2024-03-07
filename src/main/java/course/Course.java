@@ -1,4 +1,6 @@
-package com.example.demo;
+package course;
+
+import enrolment.Enrolment;
 
 import javax.persistence.*;
 
@@ -10,6 +12,14 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Entity(name = "Course")
 @Table(name = "course")
 public class Course {
+
+    public Course(String name, String department) {
+        this.name = name;
+        this.department = department;
+    }
+
+    public Course() {
+    }
 
     @Id
     @SequenceGenerator(
@@ -47,13 +57,6 @@ public class Course {
     )
     private List<Enrolment> enrolments = new ArrayList<>();
 
-    public Course(String name, String department) {
-        this.name = name;
-        this.department = department;
-    }
-
-    public Course() {
-    }
 
     public Long getId() {
         return id;
@@ -95,10 +98,9 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", department='" + department + '\'' +
-                '}';
+        return "Course " +
+                "id " + id +
+                ", name " + name + '\'' +
+                ", department " + department;
     }
 }

@@ -1,10 +1,14 @@
-package com.example.demo;
+package application;
 
 import com.github.javafaker.Faker;
+import course.Course;
+import enrolment.Enrolment;
+import enrolment.EnrolmentId;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import student.*;
 
 import java.time.LocalDateTime;
 import java.util.List;

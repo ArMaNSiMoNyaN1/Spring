@@ -1,4 +1,4 @@
-package com.example.demo;
+package enrolment;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -8,12 +8,6 @@ import java.util.Objects;
 @Embeddable
 public class EnrolmentId implements Serializable {
 
-    @Column(name = "student_id")
-    private Long studentId;
-
-    @Column(name = "course_id")
-    private Long courseId;
-
     public EnrolmentId(Long studentId, Long courseId) {
         this.studentId = studentId;
         this.courseId = courseId;
@@ -21,6 +15,12 @@ public class EnrolmentId implements Serializable {
 
     public EnrolmentId() {
     }
+
+    @Column(name = "student_id")
+    private Long studentId;
+
+    @Column(name = "course_id")
+    private Long courseId;
 
     public Long getStudentId() {
         return studentId;

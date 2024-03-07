@@ -1,4 +1,4 @@
-package com.example.demo;
+package student;
 
 import javax.persistence.*;
 
@@ -15,6 +15,18 @@ import static javax.persistence.GenerationType.SEQUENCE;
         }
 )
 public class StudentIdCard {
+
+    public StudentIdCard(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public StudentIdCard(String cardNumber, Student student) {
+        this.cardNumber = cardNumber;
+        this.student = student;
+    }
+
+    public StudentIdCard() {
+    }
 
     @Id
     @SequenceGenerator(
@@ -49,17 +61,6 @@ public class StudentIdCard {
     )
     private Student student;
 
-    public StudentIdCard(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    public StudentIdCard(String cardNumber, Student student) {
-        this.cardNumber = cardNumber;
-        this.student = student;
-    }
-
-    public StudentIdCard() {
-    }
 
     public Long getId() {
         return id;
@@ -71,11 +72,10 @@ public class StudentIdCard {
 
     @Override
     public String toString() {
-        return "StudentIdCard{" +
-                "id=" + id +
-                ", cardNumber='" + cardNumber + '\'' +
-                ", student=" + student +
-                '}';
+        return "StudentIdCard " +
+                "id " + id +
+                ", cardNumber " + cardNumber + '\'' +
+                ", student " + student;
     }
 
 }
